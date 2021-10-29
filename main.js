@@ -47,13 +47,32 @@ function emails(err_id=''){
 
     return response;
 }
-
 function names(err_id=''){
     let errId;
     let eventId = document.getElementById(window.event.target.id);    
     err_id ? errId=document.getElementById(err_id) : errId='';
 
     let response = v.name(eventId.value);
+
+    if(response){
+        eventId.style.color='#0f0';
+        errId.innerHTML = "✔";
+        errId.style.color='#0f0';
+    }else{
+        eventId.style.color='#f00';
+        errId.innerHTML = "✘";
+        errId.style.color='#f00';
+    }
+
+    return response;
+}
+
+function currency(err_id=''){
+    let errId;
+    let eventId = document.getElementById(window.event.target.id);    
+    err_id ? errId=document.getElementById(err_id) : errId='';
+
+    let response = v.currency(eventId.value);
 
     if(response){
         eventId.style.color='#0f0';
@@ -96,3 +115,4 @@ window.names = names;
 window.mobiles = mobiles;
 window.emails = emails;
 window.aadhars = aadhars;
+window.currency = currency;

@@ -6,6 +6,8 @@ class Validation
         this.aadhar_regex  = /^[0-9]{12}$/;
         this.aadhar_space_regex  = /^[0-9]{4}[\s][0-9]{4}[\s][0-9]{4}$/;
 
+        this.currency_regex = /^[0-9]*[\.][0-9]{2}[\$][-][0-9]*[\.][0-9]{2}[\$]$/;
+
         this.string_regex  = /^[a-zA-Z_]*$/;
         this.name_regex  = /^[a-zA-Z^\s]{2,}[a-zA-Z]$/;
 
@@ -54,6 +56,14 @@ class Validation
     
     aadharSpaceSeparator = (value='')=>{
         if(value.match(this.aadhar_space_regex)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    currency = (value='')=>{
+        if(value.match(this.currency_regex)){
             return true;
         }else{
             return false;
